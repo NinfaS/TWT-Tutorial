@@ -1,0 +1,13 @@
+{% extends 'main/base.html' %}
+
+{% block title %}Plot von Datensatz {{name}}{% endblock %}
+
+{% block content %}
+    <h1>{{name}}</h1>
+    <img src="data:image/png;base64, {{chart|safe}}" alt="" id="img">
+    <form method="post" action="">
+        {% csrf_token %}
+        {{form}}
+        <button type="submit", name="save", value="save">Speichern</button>
+    </form>
+{% endblock %}
